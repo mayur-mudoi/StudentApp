@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
-import {styles} from './styles';
+import {styles} from '../../../src/styles/ProfileStyles';
 import {useAuth} from '../../../context/AuthContext';
 import {databases} from '../../../lib/appwrite';
 import {Colors} from '../../../styles/globalStyles';
