@@ -18,10 +18,10 @@ import {
   formatLocation,
   validateAttendanceLocation,
   type LocationData 
-} from '../../../utils/locationUtils';
-import { findAttendanceLocation } from '../../../data/attendanceLocations';
-import { useData } from '../../../context/DataContext';
-import { useAuth } from '../../../context/AuthContext';
+} from '../../utils/locationUtils';
+import { findAttendanceLocation } from '../../data/attendanceLocations';
+import { useData } from '../../context/DataContext';
+import { useAuth } from '../../context/AuthContext';
 
 export default function Scanner() {
   const [facing, setFacing] = useState<CameraType>('back');

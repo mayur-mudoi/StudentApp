@@ -1,19 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import { LinearGradient } from 'expo-linear-gradient';
+import React, { useEffect, useState } from 'react';
 import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  ScrollView,
   ActivityIndicator,
   Alert,
+  Image,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import { LinearGradient } from 'expo-linear-gradient';
-import {styles} from '../../../src/styles/ProfileStyles';
-import {useAuth} from '../../../context/AuthContext';
-import {databases} from '../../../lib/appwrite';
-import {Colors} from '../../../styles/globalStyles';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useAuth } from '../../context/AuthContext';
+import { databases } from '../../lib/appwrite';
+import { styles } from '../../src/styles/ProfileStyles';
+import { Colors } from '../../styles/globalStyles';
 
 // interface Course {
 //   Programme: string;
@@ -93,7 +93,7 @@ const ProfileScreen = () => {
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.profileSection}>
           <Image
-            source={require('../assets/images/avatar.png')}
+            source={require('../../assets/images/avatar.png')}
             style={styles.avatar}
           />
           <Text style={styles.userName}>{studentData.Name || 'N/A'}</Text>

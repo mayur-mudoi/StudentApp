@@ -1,23 +1,23 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useEffect, useRef, useState } from 'react';
 import {
-    ActivityIndicator,
-    Animated,
-    Image,
-    KeyboardAvoidingView,
-    Platform,
-    Pressable,
-    StatusBar,
-    Text,
-    TextInput,
-    ToastAndroid,
-    TouchableOpacity,
-    View
+  ActivityIndicator,
+  Animated,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  Pressable,
+  StatusBar,
+  Text,
+  TextInput,
+  ToastAndroid,
+  TouchableOpacity,
+  View
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useAuth } from '../../../context/AuthContext';
 import { Colors } from '../../../styles/globalStyles';
-// import styles from './styles';
+import styles from './styles';
 
 // const { DevSettingsCheck } = NativeModules;
 
@@ -136,7 +136,7 @@ const LoginScreen = () => {
 
       <View style={styles.header}>
         <Image
-          source={require('../assets/images/logo.png')}
+          source={require('../../../assets/images/logo.png')}
           style={styles.logo}
         />
         <Text style={styles.title}>Attender</Text>
@@ -190,8 +190,8 @@ const LoginScreen = () => {
             <Image
               source={
                 showPassword
-                  ? require('../assets/icons/eye.png')
-                  : require('../assets/icons/eyeoff.png')
+                  ? require('../../../assets/icons/eye.png')
+                  : require('../../../assets/icons/eyeoff.png')
               }
               style={styles.icon}
             />
