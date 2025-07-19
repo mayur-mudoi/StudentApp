@@ -1,18 +1,18 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useEffect, useRef, useState } from 'react';
 import {
-  ActivityIndicator,
-  Animated,
-  Image,
-  KeyboardAvoidingView,
-  Platform,
-  Pressable,
-  StatusBar,
-  Text,
-  TextInput,
-  ToastAndroid,
-  TouchableOpacity,
-  View
+    ActivityIndicator,
+    Animated,
+    Image,
+    KeyboardAvoidingView,
+    Platform,
+    Pressable,
+    StatusBar,
+    Text,
+    TextInput,
+    ToastAndroid,
+    TouchableOpacity,
+    View
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useAuth } from '../../../context/AuthContext';
@@ -22,6 +22,7 @@ import styles from './styles';
 // const { DevSettingsCheck } = NativeModules;
 
 const LoginScreen = () => {
+  console.log('Rendering LoginScreen');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -32,6 +33,8 @@ const LoginScreen = () => {
   const floatingLabelAnimEmail = useRef(new Animated.Value(0)).current;
   const floatingLabelAnimPassword = useRef(new Animated.Value(0)).current;
   const {login, authError} = useAuth();
+
+  console.log('LoginScreen state:', { email, password, loading, authError });
 
   const animateLabel = (animValue: Animated.Value, isActive: boolean) => {
     Animated.timing(animValue, {
@@ -57,6 +60,7 @@ const LoginScreen = () => {
   });
 
   const handleLogin = async () => {
+    console.log('Attempting login with:', { email, password });
     setLoading(true);
     try {
       await login(email, password);

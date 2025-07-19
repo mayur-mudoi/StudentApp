@@ -6,7 +6,6 @@ import { useFonts } from 'expo-font';
 import { Stack, useRouter, useSegments } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
-import { ActivityIndicator, View } from 'react-native';
 import 'react-native-reanimated';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -31,7 +30,7 @@ function RootLayoutNav() {
 
   useEffect(() => {
     // Wait until auth state is initialized and fonts are loaded
-    if (!authLoading || !loaded) return;
+    if (authLoading || !loaded) return;
 
     const inTabsGroup = segments[0] === '(tabs)';
 
@@ -47,15 +46,6 @@ function RootLayoutNav() {
       router.replace('/login');
     }
   }, [authLoading, user, loaded, segments]);
-
-  // Show a loading indicator while waiting for auth and fonts
-  if (!loaded || !authLoading) {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size="large" color={colorScheme === 'dark' ? 'white' : 'black'} />
-      </View>
-    );
-  }
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
